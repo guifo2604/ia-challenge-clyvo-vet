@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clyvo Vet: tutor</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topo"><div class="topo__in">
+  <a class="marca" href="/">Clyvo Vet</a><span class="topo__perfil">Perfil de tutor</span>
+  <a class="topo__trocar" href="/">Trocar perfil</a>
+</div></header>
+<main class="pagina">
+  <section class="lateral" aria-label="Tutor e pets">
+    <div class="painel">
+      <div class="campo"><label for="sel-tutor">Quem está acompanhando</label><select id="sel-tutor"></select></div>
+      <button class="btn btn--claro btn--pequeno" id="btn-novo-tutor" type="button">Novo tutor</button>
+    </div>
+    <div class="painel">
+      <div class="painel__titulo"><h2 style="font-size:1.35rem">Meus pets</h2>
+        <button class="btn btn--pequeno" id="btn-novo-pet" type="button">Cadastrar pet</button></div>
+      <ul class="pets" id="lista-pets"></ul>
+    </div>
+  </section>
+  <section id="detalhe" aria-live="polite"></section>
+</main>
+<script src="/static/common.js"></script>
+<script src="/static/tutor.js"></script>
+</body>
+</html>

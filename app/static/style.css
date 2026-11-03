@@ -1,0 +1,171 @@
+:root{
+  --prancheta:#F4F6F5; --papel:#FFFFFF; --tinta:#14222A; --tinta-2:#4A5A63;
+  --petroleo:#0E4F5C; --petroleo-claro:#E1EEF0; --linha:#D5DDDB;
+  --mercurio:#C0342B; --mercurio-claro:#FBEAE8; --salvia:#3F7D4E; --salvia-claro:#E6F1E8;
+  --ambar:#B7791F; --ambar-claro:#FBF1DC;
+  --serifa:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+  --sans:system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --raio:10px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--prancheta);color:var(--tinta);font:16px/1.5 var(--sans)}
+h1,h2,h3{font-family:var(--serifa);font-weight:700;line-height:1.2;margin:0;letter-spacing:-.005em}
+h1{font-size:2.5rem} h2{font-size:1.75rem} h3{font-size:1.25rem}
+p{margin:0}
+a{color:var(--petroleo)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #2A8CA0;outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mudo{color:var(--tinta-2)}
+.pequeno{font-size:.875rem}
+
+/* ---------- Entrada ---------- */
+.entrada{min-height:100vh;display:grid;grid-template-rows:auto 1fr}
+.entrada__topo{padding:28px 32px 8px;display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+.marca{font-family:var(--serifa);font-size:1.5rem;font-weight:700;color:var(--petroleo);text-decoration:none}
+.entrada__lema{max-width:46ch}
+.portas{display:grid;grid-template-columns:1fr 1fr;min-height:0}
+.porta{display:flex;flex-direction:column;justify-content:center;gap:18px;padding:56px clamp(24px,6vw,96px);text-decoration:none}
+.porta h2{font-size:clamp(2rem,4vw,3rem)}
+.porta p{max-width:36ch;min-height:4.5em}
+.porta--tutor{background:var(--petroleo);color:#fff}
+.porta--vet{background:var(--papel);color:var(--tinta);border-top:1px solid var(--linha)}
+.porta__ir{align-self:flex-start;display:inline-block;padding:11px 22px;border-radius:var(--raio);font-weight:600;border:2px solid currentColor}
+.porta--tutor:hover .porta__ir,.porta--tutor:focus-visible .porta__ir{background:#fff;color:var(--petroleo)}
+.porta--vet:hover .porta__ir,.porta--vet:focus-visible .porta__ir{background:var(--petroleo);color:#fff;border-color:var(--petroleo)}
+.porta:focus-visible{outline-offset:-6px;outline-color:#fff}
+.porta--vet:focus-visible{outline-color:#2A8CA0}
+
+/* ---------- Estrutura ---------- */
+.topo{background:var(--petroleo);color:#fff}
+.topo__in{max-width:1180px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.topo .marca{color:#fff}
+.topo__perfil{font-size:.9rem;opacity:.9}
+.topo__trocar{margin-left:auto;color:#fff;font-size:.9rem}
+.pagina{max-width:1180px;margin:0 auto;padding:24px;display:grid;grid-template-columns:340px 1fr;gap:24px;align-items:start}
+.pagina--vet{grid-template-columns:1fr}
+.lateral{display:flex;flex-direction:column;gap:16px}
+.painel{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:22px}
+.painel + .painel{margin-top:16px}
+.painel__titulo{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.vazio{padding:28px 8px;text-align:center;color:var(--tinta-2)}
+.vazio strong{display:block;font-family:var(--serifa);font-size:1.15rem;color:var(--tinta);margin-bottom:4px}
+
+/* ---------- Formulários ---------- */
+label{display:block;font-weight:600;font-size:.9rem;margin-bottom:4px}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid #AEBBB8;border-radius:8px;background:#fff}
+textarea{min-height:76px;resize:vertical}
+input[type=checkbox]{width:auto;margin-right:8px;transform:scale(1.15)}
+.campo{margin-bottom:14px}
+.campo--check label{display:flex;align-items:center;font-weight:500}
+.grade2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dica{font-size:.82rem;color:var(--tinta-2);margin-top:4px}
+.btn{display:inline-block;padding:10px 18px;border-radius:8px;border:2px solid var(--petroleo);background:var(--petroleo);color:#fff;font-weight:600;cursor:pointer}
+.btn:hover{background:#0A3E49;border-color:#0A3E49}
+.btn--claro{background:#fff;color:var(--petroleo)}
+.btn--claro:hover{background:var(--petroleo-claro);border-color:var(--petroleo)}
+.btn--pequeno{padding:6px 12px;font-size:.9rem}
+.btn[disabled]{opacity:.6;cursor:progress}
+.erro{background:var(--mercurio-claro);color:#7E1E18;border:1px solid #E5B1AC;border-radius:8px;padding:10px 12px;margin-bottom:14px;font-size:.92rem}
+
+/* ---------- Lista de pets (tutor) ---------- */
+.pets{display:flex;flex-direction:column;gap:2px;margin:0;padding:0;list-style:none}
+.pet-linha{width:100%;text-align:left;display:grid;grid-template-columns:1fr;gap:6px;padding:12px 12px 12px 14px;background:none;border:0;border-left:4px solid transparent;border-radius:0 8px 8px 0;cursor:pointer}
+.pet-linha:hover{background:var(--prancheta)}
+.pet-linha[aria-current=true]{background:var(--petroleo-claro);border-left-color:var(--petroleo)}
+.pet-linha__nome{font-family:var(--serifa);font-size:1.15rem;font-weight:700}
+.pet-linha__sub{font-size:.85rem;color:var(--tinta-2)}
+.pet-linha__estado{display:flex;align-items:center;gap:10px;font-size:.85rem}
+.pet-linha__estado .termo{flex:1}
+
+/* ---------- Termômetro ---------- */
+.termo{--cor:var(--salvia);display:flex;align-items:center;min-width:90px}
+.termo--alto{--cor:var(--mercurio)}
+.termo__bulbo{flex:none;width:16px;height:16px;border-radius:50%;background:var(--cor);margin-right:-3px;z-index:1}
+.termo__trilho{position:relative;flex:1;height:10px;border:2px solid var(--cor);border-radius:0 6px 6px 0;background:
+  repeating-linear-gradient(90deg,transparent 0 calc(10% - 1px),rgba(20,34,42,.14) calc(10% - 1px) 10%),#fff;overflow:visible}
+.termo__merc{position:absolute;left:0;top:0;bottom:0;width:calc(var(--p)*1%);background:var(--cor);border-radius:0 3px 3px 0}
+.termo__limiar{position:absolute;left:50%;top:-6px;bottom:-6px;width:2px;background:var(--tinta)}
+.termo--grande .termo__bulbo{width:30px;height:30px;margin-right:-5px}
+.termo--grande .termo__trilho{height:18px;border-width:3px;border-radius:0 10px 10px 0}
+.termo--grande .termo__limiar{top:-10px;bottom:-10px}
+.termo--anima .termo__merc{width:0;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+.termo--anima.on .termo__merc{width:calc(var(--p)*1%)}
+.termo-legenda{display:flex;justify-content:space-between;font-size:.78rem;color:var(--tinta-2);margin:6px 0 0 24px}
+
+/* ---------- Leitura do pet ---------- */
+.pet-cab{display:flex;flex-direction:column;gap:4px;margin-bottom:18px}
+.leitura{display:grid;gap:14px;padding:18px;border-radius:var(--raio);margin-bottom:20px;border:1px solid transparent}
+.leitura--alto{background:var(--mercurio-claro);border-color:#E5B1AC}
+.leitura--baixo{background:var(--salvia-claro);border-color:#B9D6BF}
+.leitura--vazio{background:var(--prancheta);border-color:var(--linha)}
+.leitura h3{font-size:1.4rem}
+.leitura__numero{font-family:var(--serifa);font-size:2.4rem;font-weight:700;line-height:1}
+.leitura__linha{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.aviso{font-size:.82rem;color:var(--tinta-2)}
+.secao{margin-top:26px}
+.secao h3{margin-bottom:10px}
+.grafico{width:100%;height:auto;display:block}
+.grafico text{font:12px var(--sans);fill:#4A5A63}
+.historico{list-style:none;margin:0;padding:0}
+.historico li{display:grid;grid-template-columns:96px 1fr 150px;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--linha)}
+.historico li:first-child{border-top:0}
+.historico .data{font-weight:600}
+.historico small{display:block;color:var(--tinta-2)}
+table{width:100%;border-collapse:collapse;font-size:.93rem}
+th{text-align:left;font-weight:600;padding:8px 10px;border-bottom:2px solid var(--linha);font-size:.85rem;color:var(--tinta-2)}
+td{padding:10px;border-bottom:1px solid var(--linha);vertical-align:middle}
+.etiqueta{display:inline-block;padding:2px 9px;border-radius:99px;font-size:.8rem;font-weight:600}
+.etiqueta--ok{background:var(--salvia-claro);color:#2C5E38}
+.etiqueta--vencida{background:var(--ambar-claro);color:#7B4F0E}
+.etiqueta--alto{background:var(--mercurio-claro);color:#8A241D}
+.rolagem{overflow-x:auto}
+
+/* ---------- Veterinário ---------- */
+.barra{display:flex;gap:16px;align-items:end;flex-wrap:wrap;margin-bottom:18px}
+.barra .campo{margin:0;min-width:260px}
+.barra__acoes{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+.abas{display:flex;gap:4px;border-bottom:2px solid var(--linha);margin-bottom:20px;overflow-x:auto}
+.aba{padding:10px 16px;background:none;border:0;border-bottom:4px solid transparent;margin-bottom:-2px;font-weight:600;color:var(--tinta-2);cursor:pointer;white-space:nowrap}
+.aba[aria-selected=true]{color:var(--petroleo);border-bottom-color:var(--petroleo)}
+.fila{list-style:none;margin:0;padding:0}
+.fila__item{display:grid;grid-template-columns:44px 1fr 220px;gap:18px;padding:18px 0;border-top:1px solid var(--linha);align-items:start}
+.fila__item:first-child{border-top:0}
+.fila__ordem{font-family:var(--serifa);font-size:1.6rem;font-weight:700;color:var(--tinta-2)}
+.fila__nome{font-family:var(--serifa);font-size:1.25rem;font-weight:700}
+.fila__score{font-family:var(--serifa);font-size:1.8rem;font-weight:700;color:var(--mercurio);line-height:1}
+.fila details{margin-top:8px}
+.fila summary{cursor:pointer;color:var(--petroleo);font-weight:600;font-size:.9rem}
+.nova{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.ficha{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:.9rem;margin:0 0 16px;padding:12px 14px;background:var(--petroleo-claro);border-radius:8px}
+.ficha dt{color:var(--tinta-2)}
+.ficha dd{margin:0;font-weight:600}
+.resultado h3{font-size:1.5rem;margin:6px 0 2px}
+
+/* ---------- Diálogo e aviso ---------- */
+dialog.dlg{border:0;border-radius:14px;padding:0;width:min(560px,calc(100vw - 32px));max-height:92vh;box-shadow:0 20px 60px rgba(14,34,42,.35)}
+dialog.dlg::backdrop{background:rgba(14,34,42,.55)}
+.dlg__form{padding:24px;overflow:auto;max-height:92vh}
+.dlg__form h2{font-size:1.5rem;margin-bottom:16px}
+.dlg__acoes{display:flex;justify-content:flex-end;gap:10px;margin-top:8px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--tinta);color:#fff;padding:12px 20px;border-radius:10px;z-index:50;max-width:calc(100vw - 32px)}
+.toast[hidden]{display:none}
+
+@media (max-width:900px){
+  .pagina{grid-template-columns:1fr;padding:16px}
+  .nova{grid-template-columns:1fr}
+  .portas{grid-template-columns:1fr}
+  .porta{padding:40px 24px}
+}
+@media (max-width:640px){
+  h1{font-size:2rem}
+  .historico li{grid-template-columns:1fr}
+  .fila__item{grid-template-columns:32px 1fr}
+  .fila__item .fila__medidor{grid-column:1 / -1}
+  .grade2{grid-template-columns:1fr}
+  .painel{padding:16px}
+}
+@media (prefers-reduced-motion:reduce){
+  .termo--anima .termo__merc{transition:none}
+}

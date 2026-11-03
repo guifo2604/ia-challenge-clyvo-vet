@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clyvo Vet: clínica</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topo"><div class="topo__in">
+  <a class="marca" href="/">Clyvo Vet</a><span class="topo__perfil">Perfil de veterinário</span>
+  <a class="topo__trocar" href="/">Trocar perfil</a>
+</div></header>
+<main class="pagina pagina--vet">
+  <section>
+    <div class="barra">
+      <div class="campo"><label for="sel-clinica">Clínica</label><select id="sel-clinica"></select></div>
+      <div class="barra__acoes">
+        <button class="btn btn--claro" id="btn-novo-tutor" type="button">Novo tutor</button>
+        <button class="btn btn--claro" id="btn-novo-pet" type="button">Novo pet</button>
+      </div>
+    </div>
+    <div class="abas" role="tablist" aria-label="Seções da clínica">
+      <button class="aba" role="tab" id="aba-prioridade" aria-controls="painel-prioridade" aria-selected="true">Prioridade de atendimento</button>
+      <button class="aba" role="tab" id="aba-nova" aria-controls="painel-nova" aria-selected="false">Nova consulta</button>
+      <button class="aba" role="tab" id="aba-consultas" aria-controls="painel-consultas" aria-selected="false">Consultas da clínica</button>
+    </div>
+    <div id="painel-prioridade" role="tabpanel" aria-labelledby="aba-prioridade"></div>
+    <div id="painel-nova" role="tabpanel" aria-labelledby="aba-nova" hidden></div>
+    <div id="painel-consultas" role="tabpanel" aria-labelledby="aba-consultas" hidden></div>
+  </section>
+</main>
+<script src="/static/common.js"></script>
+<script src="/static/vet.js"></script>
+</body>
+</html>
