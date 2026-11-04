@@ -1,4 +1,3 @@
-"""Conexão com o banco: Oracle da FIAP (padrão) ou SQLite (dev/testes)."""
 import os
 
 from sqlalchemy import create_engine
@@ -11,10 +10,8 @@ class Base(DeclarativeBase):
 
 
 def build_url() -> str | URL:
-    # 1) URL explícita (ex.: sqlite:///./teste.db) tem prioridade
     if explicit := os.getenv("DATABASE_URL"):
         return explicit
-    # 2) Oracle da FIAP via variáveis de ambiente (nada de senha no código)
     user = os.getenv("ORACLE_USER")
     if user:
         return URL.create(
